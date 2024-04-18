@@ -20,7 +20,7 @@
                 <div class="img"></div>
             </div>
             <div class="new title-container">
-                <div class="title">Frocio Gay</div>
+                <div class="title">Feed Title</div>
                 <div class="info">
                     <div>8 hours ago</div>
                     <div style="font-size: 10px;align-self:center;">●</div>
