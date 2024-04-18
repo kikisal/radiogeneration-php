@@ -39,7 +39,7 @@ const FeedsModel = [
 ];
 
 async function http_fetch(req_desc) {
-    try {            
+    try {
         const res  = await fetch(req_desc.endpoint);
         
         if (res.status != 200)
@@ -61,7 +61,7 @@ async function http_fetch(req_desc) {
 
 class Feeder {
 
-    static FEEDER_ENDPOINT = 'http://localhost/feeds/';
+    static FEEDER_ENDPOINT = 'http://localhost/api/feeds/';
 
     constructor(type, query) {
         this._type             = type;
