@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/about-us.css" />
-    <!-- alr -->
 </head>
 
 <body>
