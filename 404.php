@@ -47,7 +47,6 @@
     </style>
 </head>
 <body>
-    <script>console.log("page not found");</script>
     <div class="container">
         <h1>Errore 404</h1>
         <p>Sembra che questa pagina non esista.</p>
