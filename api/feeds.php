@@ -1,5 +1,11 @@
 <?php
+require_once $this->getRootDir() . '/controls/api/feeds-control.php';
 
-echo '<pre>';
+if ($_SERVER['REQUEST_METHOD'] != 'POST')
+    exit_json("Invalid request", RequestStatus::BAD_REQUEST);
 
-var_dump($this);
+
+echo json_encode([
+    "test" => 2
+]);
+
