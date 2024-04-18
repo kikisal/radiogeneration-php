@@ -15,6 +15,7 @@
 
 <body>
     <div class="over" id="over">
+        <!-- overlay -->
         <div class="overlay">
             <div class="new image">
                 <div class="img"></div>
