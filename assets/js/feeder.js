@@ -40,7 +40,14 @@ const FeedsModel = [
 
 async function http_fetch(req_desc) {
     try {
-        const res  = await fetch(req_desc.endpoint);
+        const res  = await fetch(req_desc.endpoint, {
+            method: "POST",
+            body: JSON.stringify(req_desc.data),
+            headers: {
+                "Content-type": "application/json"
+            }
+        });
+
         
         if (res.status != 200)
             return null;
@@ -61,7 +68,7 @@ async function http_fetch(req_desc) {
 
 class Feeder {
 
-    static FEEDER_ENDPOINT = 'http://localhost/api/feeds/';
+    static FEEDER_ENDPOINT = 'http://localhost/api/feeds';
 
     constructor(type, query) {
         this._type             = type;
@@ -79,7 +86,10 @@ class Feeder {
 
     async getFeeds(chunk) {
         return await http_fetch({
-            endpoint: Feeder.FEEDER_ENDPOINT + `${!chunk ? '' : chunk}`
+            endpoint: Feeder.FEEDER_ENDPOINT + `${!chunk ? '' : chunk}`,
+            data: {
+                timestamp: Date.now() / 1000
+            }
         });
     }
 

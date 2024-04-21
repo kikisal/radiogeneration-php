@@ -1,11 +1,18 @@
 <?php
 
-header('Content-type: application/json');
-$this->setHtml(false);
 
-class RequestStatus {
-    const BAD_REQUEST = "bad_request";
-};
+header('Content-type: application/json');
+
+use Core\Session\UserSession;
+use Session\SessionKeys;
+
+$session = UserSession::get();
+
+$sessionTime = $session->value("session_timestamp");
+
+if(empty($sessionTime))
+    $session->store(SessionKeys::SESSION_TIMESTAMP, time());
+
 
 function exit_json($message, $status) {
     exit (json_encode([

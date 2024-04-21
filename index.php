@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/style.css" />
-    <script src="assets/js/feeder.js"></script>
+    <script src="assets/js/feeder.js?v2"></script>
 </head>
 
 <body>
