@@ -1,0 +1,14 @@
+{
+    "index": {
+        "controller": "Controller\\IndexController.php"
+    },
+    "404": {
+        "controller": "Controller\\NotFoundController.php"
+    },
+    "podcast": {
+        "controller": "Controller\\PodcastController.php"
+    },
+    "about-us": {
+        "controller": "Controller\\AboutUs.php"        
+    }
+}

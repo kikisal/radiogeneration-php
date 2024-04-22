@@ -16,8 +16,8 @@ namespace Core\Session {
             $this->sessionTable = $_SESSION;
         }
 
-        public function value(string $key): string {
-            return $this->sessionTable[$key];
+        public function value(string $key): ?string {
+            return array_key_exists($key, $this->sessionTable) ? @$this->sessionTable[$key] : null;
         }
 
         public function store(string $key, string $value): void {
@@ -38,6 +38,6 @@ namespace Core\Session {
 
         public static function get(): IUserSession {
             return self::$_sessionInstance ? self::$_sessionInstance : self::$_sessionInstance = new UserSession();
-        }   
+        }
     }
 }

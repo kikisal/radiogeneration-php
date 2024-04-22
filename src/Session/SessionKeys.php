@@ -2,8 +2,7 @@
 
 namespace Session {
     class SessionKeys {
-        public static const SESSION_TIMESTAMP = 'session_timestamp'; 
-
+        public const SESSION_TIMESTAMP = 'session_timestamp'; 
 
     }
 }
