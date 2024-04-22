@@ -3,8 +3,6 @@ require_once $this->getRootDir() . '/controls/api/feeds-control.php';
 
 define("TIMESTAMP_CACHE_PATH", __DIR__ . "/mockup/timestamps.json");
 
-use Mocky\MockupEngine;
-
 
 //if ($_SERVER['REQUEST_METHOD'] != 'POST')
 //    exit_json("Invalid request", RequestStatus::BAD_REQUEST);

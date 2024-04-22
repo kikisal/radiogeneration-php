@@ -6,7 +6,7 @@ header('Content-type: application/json');
 use Core\Session\UserSession;
 use Session\SessionKeys;
 
-$session = UserSession::get();
+$session = UserSession::instance();
 
 $sessionTime = $session->value("session_timestamp");
 
