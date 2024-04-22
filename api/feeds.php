@@ -1,9 +1,17 @@
 <?php
 
-use Facades\Control\FeedControl;
+require_once __DIR__ . '/../common/common.php';
 
-FeedControl::handle($request, $response);
+/*
+use Controller\Feed\FeedControler;
 
+// FeedControl::handle($request, $response);
+
+Route::use([
+        SessionMiddleWare::class,
+        FeedControler::class
+    ]
+);
 
 
 function sample_timestamps($count) {
@@ -106,3 +114,4 @@ $feeds
 
 
 echo     json_encode($feeds);
+*/

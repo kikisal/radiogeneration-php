@@ -13,19 +13,14 @@ class FeedControler {
 
     private $feedsMock;
 
-    public function __construct() {
-        $this->session     = UserSession::instance();
-        $this->sessionTime = $this->session->value("session_timestamp");
-        
-        if(empty($this->sessionTime))
-            $this->session->store(SessionKeys::SESSION_TIMESTAMP, time());
-
-        $this->feedsMock = Mocky::create(FeedMockup::class);
-    }
 
     public function handle($req, $res) {
+
+        
         if ($req->method() != 'POST')
             $res->exitJson("Invalid request", RequestStatus::BAD_REQUEST);
+
+        $this->feedsMock = Mocky::create(FeedMockup::class);
 
         $res->setHeader("Content-type", "application/json");
     }
