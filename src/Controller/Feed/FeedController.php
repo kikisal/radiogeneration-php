@@ -15,8 +15,6 @@ class FeedControler {
 
 
     public function handle($req, $res) {
-
-        
         if ($req->method() != 'POST')
             $res->exitJson("Invalid request", RequestStatus::BAD_REQUEST);
 

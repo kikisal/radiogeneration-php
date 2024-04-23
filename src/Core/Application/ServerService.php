@@ -7,7 +7,15 @@ use Core\Application\Service;
 
 class ServerService implements Service {
 
-    protected $serverContext;
+    private $serverContext;
+
+    public function init() {
+        throw new \Exception("Method not defined");
+    }
+
+    public function needsInit(): bool {
+        return false;
+    }
 
     public function getContext(): ServerContext {
         return $this->serverContext;

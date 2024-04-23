@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Application;
-use Core\Bootstrap\Bootable;
 
 class App implements ServerApp {
 
@@ -29,8 +28,14 @@ class App implements ServerApp {
         // inject dependencies
         $this->router = $this->serverContext->getService("router");
 
-        
-        var_dump($this->router);
+        $entryPoint   = $this->serverContext->config("entry-point");
+
+        // get user app
+        // which will set of its routes
+        // after that execute the router
+
+        // start routing (Executes all of the middleware functions)
+        // $router->route();
         
         return true;
     }

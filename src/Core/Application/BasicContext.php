@@ -4,20 +4,45 @@ namespace Core\Application;
 
 class ServiceHolder {
 
+    /**
+     * Server global context
+     */
     private $_context;
 
     /**
-     * class to instantiate.
+     * Class to instantiate.
      */
     private $_class;
     /**
-     * holds ref to instance
+     * Holds ref to instance
      */
     private $_instance;
 
+    /**
+     * Keeps track of whether this service is initialized
+     */
+    private $_initialized;
+
     public function __construct($context, $class) {
-        $this->_context = $context;
-        $this->_class   = $class;
+        $this->_context     = $context;
+        $this->_class       = $class;
+        $this->_initialized = false;
+    }
+
+    /**
+     * Sets service as initialized.
+     */
+    public function initialized() {
+        $this->_initialized = true;
+        return $this;
+    }
+
+    
+    /**
+     * Checks service is initialized.
+     */
+    public function isInitialized() {
+        return $this->_initialized;
     }
 
     private function createInstance() {
@@ -32,7 +57,6 @@ class ServiceHolder {
 };
 class BasicContext implements ServiceProvider {
 
-
     protected $_services;
 
     public static $serviceInitialInstance = null;
@@ -42,10 +66,21 @@ class BasicContext implements ServiceProvider {
     }
 
     public function getService($name): ?Service {
-        if (array_key_exists($name, $this->_services))
-            return $this->_services[$name]->instance();
+        if (array_key_exists($name, $this->_services)) {
+            $service  = $this->_services[$name]; 
+            $instance = $service->instance();
+
+            if ($instance->needsInit() && !$service->isInitialized())
+                throw new \Exception("Service " . $name . " not initialized yet!");
+
+            return $instance;
+        }
 
         return null;
+    }
+
+    public function getServices() {
+        return $this->_services;
     }
 
     public function register($name, $class): ServiceProvider {

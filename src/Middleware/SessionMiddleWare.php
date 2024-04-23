@@ -1,7 +1,9 @@
 <?php
 use Core\Routing\Middleware;
+use Core\Session\UserSession;
+use Session\SessionKeys;
 
-class SessionMiddleWare extends Middleware {
+class SessionMiddleware extends Middleware {
     private $session;
 
     private $feedsMock;
